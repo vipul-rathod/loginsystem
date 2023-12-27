@@ -8,20 +8,35 @@
   </head>
   <body>
     <?php require "partials/_nav.php" ?>
+    <?php
+      require "submit_to_db.php";
+      if ($showAlert){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success</strong> Your account is now created and you can login.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+      }
+      if ($showError){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error</strong> ' . $showError .
+        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+      }
+    ?>
     <div class="container my-4">
         <h1 class="text-center">SignUp to our website</h1>
         <form action="/loginsystem/signup.php" method="post" style="display:flex; flex-direction:column; align-items:center">
             <div class="mb-3 col-md-3">
                 <label for="username" style="display:block; text-align:left;" class="form-label">Username</label>
-                <input type="email" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
                 
             </div>
             <div class="mb-3 col-md-3">
-                <label for="password" style="display:block; text-align:center;" class="form-label">Password</label>
+                <label for="password" style="display:block; text-align:left;" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
             <div class="mb-3 col-md-3">
-                <label for="cpassword" style="display:block; text-align:right;" class="form-label">Confirm Password</label>
+                <label for="cpassword" style="display:block; text-align:left;" class="form-label">Confirm Password</label>
                 <input type="password" class="form-control" id="cpassword" name="cpassword">
                 <small id="cpasswordHelp" class="form-text">Make sure to type the same password.</small>
             </div>
