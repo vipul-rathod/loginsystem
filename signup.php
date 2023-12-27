@@ -11,6 +11,7 @@
     <?php
       require "submit_to_db.php";
       if ($showAlert){
+        header("location: login.php");
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Success</strong> Your account is now created and you can login.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

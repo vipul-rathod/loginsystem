@@ -18,7 +18,8 @@ $sql = "CREATE TABLE IF NOT EXISTS `{$database}`.`{$table}` (
     `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `username` VARCHAR(11) NOT NULL,
     `password` VARCHAR(25) NOT NULL,
-    `dt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP);";
+    `dt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (`username`));";
 
 $result = mysqli_query($conn, $sql);
 ?>
